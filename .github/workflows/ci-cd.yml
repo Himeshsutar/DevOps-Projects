@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: List directory contents (Debugging)
+        run: ls -R
+
       - name: Install dependencies
         run: npm install
         working-directory: ./my-app
