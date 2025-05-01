@@ -5,3 +5,6 @@
 __pycache__/
 *.pyc
 
+#Ignore database
+db.sqlite3
+
