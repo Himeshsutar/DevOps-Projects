@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path, include
+from django.shortcuts import render
 
 def home(request):
     return HttpResponse("Welcome to the Incident Management System!")

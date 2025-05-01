@@ -1,1 +1,10 @@
+# Ignore .env file for security
+.env
+
+# Ignore node_modules folder (Node.js dependencies)
 node_modules/
+
+# Ignore Django migrations
+__pycache__/
+*.pyc
+

@@ -1,4 +1,4 @@
-name: Node.js CI
+name: CI-CD Pipeline
 
 on:
   push:
@@ -13,33 +13,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout the code from the repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
+      # Set up Node.js environment
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: List directory contents (Debugging)
-        run: ls -R
+      # Cache npm modules to speed up builds
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
+      # Install dependencies for the app
       - name: Install dependencies
         run: npm install
         working-directory: ./CI-CD-Pipeline-Project-1/my-app
 
+      # Run tests (if you have tests)
       - name: Run tests
         run: npm test
         working-directory: ./CI-CD-Pipeline-Project-1/my-app
 
-      - name: Log in to Docker Hub
+      # Log into Docker Hub using Docker access token
+      - name: Docker login
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
+      # Build the Docker image
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest -f ./CI-CD-Pipeline-Project-1/my-app/Dockerfile ./CI-CD-Pipeline-Project-1/my-app
+        run: docker build --pull -t ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest -f ./CI-CD-Pipeline-Project-1/my-app/Dockerfile ./CI-CD-Pipeline-Project-1/my-app
 
+      # Push the Docker image to Docker Hub
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/my-node-app:latest
 
+      # Log out of Docker
       - name: Docker logout
         run: docker logout
