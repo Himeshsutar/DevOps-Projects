@@ -132,4 +132,4 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')     # 👉 your Gmail address
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')      # 👉 App password (not your Gmail login password!)
 
-# print("SECRET_KEY loaded as:", SECRET_KEY)
+
