@@ -1,0 +1,7 @@
+# Ignore .env file for security
+.env
+
+# Ignore Django migrations
+__pycache__/
+*.pyc
+
