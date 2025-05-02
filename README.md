@@ -69,3 +69,21 @@ Version-controlled codebase with Git
 ├── incident-management-system/     # Project 2 codebase
 ├── README.md                       # This file
 
+🧾 Results
+
+- Developed and deployed the Incident Management System with role-based access, REST APIs, and a styled UI, running on the Django deployment server.
+
+
+
+![alt text](<CI-CD-Pipeline-Project-1/my-app/Screenshots/Django deployment page.png>)
+
+
+
+
+
+- Developed and deployed the Incident Management System using Docker Image
+
+
+
+
+![alt text](<CI-CD-Pipeline-Project-1/my-app/Screenshots/Docker image.png>)
