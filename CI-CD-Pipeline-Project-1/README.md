@@ -50,7 +50,7 @@ The Docker image is built and pushed to Docker Hub for easy deployment to the Ku
 
 
 
-![Docker Image Running](https://github.com/user-attachments/assets/ed1ee70c-c7e0-4487-8abc-e8f3445634ae)
+![alt text](<my-app/Screenshots/Docker Image Running.png>)
 
 
 
@@ -61,23 +61,9 @@ The Docker image is pulled locally for testing before deployment.
 
 
 
-![Docker pull and run command](https://github.com/user-attachments/assets/4043371b-1365-4443-85d9-ece1909eefde)
-
-
-
-
-
 🚀 4. Deploy App using Minikube
 
 The application is deployed locally using Minikube and Kubernetes. The app is accessible through Minikube’s IP.
-
-
-
-
-![Minikube](https://github.com/user-attachments/assets/37d9b342-5b27-4e32-aa14-ae0a8b06962a)
-
-
-
 
 
 
